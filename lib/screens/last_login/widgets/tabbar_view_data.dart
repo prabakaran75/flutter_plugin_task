@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_plugin_task/screens/last_login/widgets/list_of_data.dart';
-import 'package:intl/intl.dart';
 
 class TabBarViewData extends StatelessWidget {
   const TabBarViewData({

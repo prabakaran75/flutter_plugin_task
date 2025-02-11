@@ -7,10 +7,9 @@ import 'package:flutter_plugin_task/common/widgets/custom_button.dart';
 import 'package:flutter_plugin_task/common/widgets/main_container.dart';
 import 'package:flutter_plugin_task/common/widgets/title_card.dart';
 import 'package:flutter_plugin_task/core/theme/app_colors.dart';
-import 'package:flutter_plugin_task/screens/dashbord/widgets/generated_number.dart';
 import 'package:flutter_plugin_task/screens/dashbord/widgets/qr_scanner_box.dart';
 import 'package:flutter_plugin_task/screens/last_login/last_login_details.dart';
-import 'package:flutter_plugin_task/screens/triangle_container.dart';
+import 'package:flutter_plugin_task/screens/dashbord/widgets/triangle_container.dart';
 import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    String lastSignInTime = DateFormat("hh a").format(widget.user.metadata.lastSignInTime!.toLocal());
+    String lastSignInTime = DateFormat("hh a")
+        .format(widget.user.metadata.lastSignInTime!.toLocal());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: SizedBox(
@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
               width: width,
               text: 'PLUGIN',
             ),
-            GeneratedNumber(
+            TriangleContainerScreen(
               width: width,
-              height: height,
+              height: width,
               val: rn,
             ),
             Positioned(
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               left: width * 0.06,
               right: width * 0.06,
-              bottom: height * 0.1,
+              bottom: height * 0.02,
               child: Column(
                 children: [
                   GestureDetector(
@@ -121,12 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: height,
                     width: width,
                     text: "Save",
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TriangleContainerScreen()));
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),

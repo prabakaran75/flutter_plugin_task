@@ -2,24 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_plugin_task/core/theme/app_colors.dart';
 
 class TriangleContainerScreen extends StatelessWidget {
+  final double width;
+  final double height;
+  final int val;
   const TriangleContainerScreen({
     super.key,
+    required this.width,
+    required this.height,
+    required this.val,
   });
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: Center(
-          child: Stack(
+    return Positioned(
+      left: width * 0.2,
+      right: width * 0.2,
+      top: height * 0.4,
+      child: Stack(
         children: [
           Container(
             height: height * 0.28,
             width: width * 0.6,
             decoration: BoxDecoration(
-                color: AppColors.secondaryColor,
-                borderRadius: BorderRadius.circular(16)),
+              color: const Color.fromARGB(255, 27, 27, 27),
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          // Triangle Overlay Covering Three Sides
+          Positioned(
+            child: CustomPaint(
+              size: Size(width * 0.6, height * 0.28),
+              painter: RoundedTrianglePainter(),
+            ),
+          ),
+          SizedBox(
+            height: height * 0.28,
+            width: width * 0.6,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -35,21 +54,14 @@ class TriangleContainerScreen extends StatelessWidget {
                   height: height * 0.01,
                 ),
                 Text(
-                  "10",
+                  "$val",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ],
             ),
           ),
-          // Triangle Overlay Covering Three Sides
-          Positioned(
-            child: CustomPaint(
-              size: Size(width * 0.6, height * 0.28),
-              painter: RoundedTrianglePainter(),
-            ),
-          ),
         ],
-      )),
+      ),
     );
   }
 }

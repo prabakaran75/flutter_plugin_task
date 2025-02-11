@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_plugin_task/core/theme/app_colors.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 class ListOfData extends StatelessWidget {
   const ListOfData({
@@ -18,7 +17,8 @@ class ListOfData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String lastSignInTime = DateFormat("hh:mm a").format(user.metadata.lastSignInTime!.toLocal());
+    String lastSignInTime =
+        DateFormat("hh:mm a").format(user.metadata.lastSignInTime!.toLocal());
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: height * 0.01,
@@ -51,14 +51,14 @@ class ListOfData extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "IP: Address",
+                      "IP: 000.000.000.00",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                       ),
                     ),
                     Text(
-                      "Location",
+                      "Chennai",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 10,

@@ -6,7 +6,6 @@ import 'package:flutter_plugin_task/common/widgets/main_container.dart';
 import 'package:flutter_plugin_task/common/widgets/title_card.dart';
 import 'package:flutter_plugin_task/core/theme/app_colors.dart';
 import 'package:flutter_plugin_task/screens/last_login/widgets/tabbar_view_data.dart';
-import 'package:intl/intl.dart';
 
 class LastLoginDetails extends StatefulWidget {
   const LastLoginDetails(this.user, {super.key});
@@ -61,7 +60,8 @@ class _LastLoginDetailsState extends State<LastLoginDetails> {
             left: width * 0.06,
             right: width * 0.06,
             top: height * 0.2,
-            child: TabBarViewData(height: height, width: width, user:widget.user),
+            child:
+                TabBarViewData(height: height, width: width, user: widget.user),
           ),
           Positioned(
             left: width * 0.06,
@@ -79,4 +79,3 @@ class _LastLoginDetailsState extends State<LastLoginDetails> {
     );
   }
 }
-
